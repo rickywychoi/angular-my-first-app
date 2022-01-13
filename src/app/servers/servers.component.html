@@ -5,18 +5,33 @@
 <input type="text" class="form-control" [(ngModel)]="serverName" />
 
 <!-- property & event binding -->
-<button
-  class="btn btn-primary"
-  [disabled]="!allowNewServer"
-  (click)="onCreateServer()"
->
-  Add Server
-</button>
+<span>
+  <button
+    class="btn btn-primary"
+    style="margin-right: 15px"
+    [disabled]="!allowNewServer"
+    (click)="onCreateServer()"
+  >
+    Add Server
+  </button>
+  <button
+    class="btn btn-danger"
+    [disabled]="!serverCreated"
+    (click)="onDeleteServer()"
+  >
+    Delete Server
+  </button>
+</span>
 <!-- <p>allowNewServer: {{ allowNewServer }}</p>
 <p [innerText]="allowNewServer"></p> -->
 
 <!-- string interpolation -->
-<p>{{ serverCreationStatus }}</p>
+<!-- <p>{{ serverCreationStatus }}</p> -->
 
-<app-server></app-server>
-<app-server></app-server>
+<!-- structural directive -->
+<p *ngIf="serverCreated; else noServer">
+  Server was created, Name is {{ serverName }}
+</p>
+<ng-template #noServer><p>No server was created.</p></ng-template>
+
+<app-server *ngFor="let server of servers"></app-server>

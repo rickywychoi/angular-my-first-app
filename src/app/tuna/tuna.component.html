@@ -1,0 +1,13 @@
+<button
+  class="btn btn-success"
+  [ngStyle]="{ marginBottom: '10px' }"
+  (click)="onToggle()"
+>
+  Display Details
+</button>
+<p>Secret Password = {{ password }}</p>
+<ul>
+  <li *ngFor="let log of logs; index as i">
+    <p [ngClass]="{ special: i >= 4 }">{{ log }}</p>
+  </li>
+</ul>

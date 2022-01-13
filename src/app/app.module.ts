@@ -6,9 +6,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
 import { ServersComponent } from './servers/servers.component';
+import { TunaComponent } from './tuna/tuna.component';
 
 @NgModule({
-  declarations: [AppComponent, ServerComponent, ServersComponent],
+  declarations: [
+    AppComponent,
+    ServerComponent,
+    ServersComponent,
+    TunaComponent,
+  ],
   imports: [BrowserModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
